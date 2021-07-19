@@ -2,7 +2,7 @@ exclude: (^asv_bench|setup.py|requirements-dev.txt)
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.3.0
+    rev: v4.0.1
     hooks:
       - id: check-ast
         description: Simply check whether files parse as valid python
@@ -23,25 +23,25 @@ repos:
       - id: mixed-line-ending
         description: Replaces or checks mixed line ending
 
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.6.4
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.9.2
     hooks:
       - id: isort
         args: ["--line-length=79"]
 
   - repo: https://github.com/ikamensh/flynt
-    rev: ''
+    rev: '0.63'
     hooks:
         - id: flynt
 
   - repo: https://github.com/psf/black
-    rev: 20.8b1
+    rev: 21.7b0
     hooks:
       - id: black
         args: ["--line-length=79"]
 
   - repo: https://github.com/pycqa/pylint
-    rev: pylint-2.7.2
+    rev: v2.9.3
     hooks:
       - id: pylint
         args: ["--disable=import-error"]
@@ -50,7 +50,7 @@ repos:
   - repo: https://github.com/pre-commit/mirrors-mypy
     # TODO: in mypy 0.900+ one needs to pip install type stubs separately (i.e. typeshed is no longer included)
     # TODO: but pre-commit downloads mypy in a different location (~/.cache)
-    rev: v0.812
+    rev: v0.910
     hooks:
       - id: mypy
         entry: mypy pandera tests
